@@ -1,28 +1,51 @@
-/**create nested element and create two h1 and h2 siblings using array, also two child child1 and child2 */
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const parent = React.createElement("div", { id: "parent" }, [
-    React.createElement("div", { id: "child" },
-        [React.createElement("h1", {}, "I am h1 tag"),
-        React.createElement("h2", {}, "I am h2 tag"),
-        ]),
-    React.createElement("div", { id: "child" },
-        [React.createElement("h1", {}, "I am h1 tag"),
-        React.createElement("h2", {}, "I am h2 tag"),
-        ]),
-]);
+/**
+ * Header
+ * -Logo
+ * -Nav Items
+ * Body
+ * -Search
+ * -RestaurantContainer
+ *    -RestaurantCard
+ * Footer
+ * -Copyright
+ * -Links
+ * -Address
+ * -contact
+ */
 
-console.log(parent);
+const Header = () =>{
+  return(
+    <div className="header">
+      <div className="logo-container">
+        <img className="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OCbzvRLLbTMEOxv1E5fFBQ4N2cfJW-PSg6MeEtLJ&s"/>
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+
+const AppLayout = () =>{
+  return (
+    <div className="app">
+      <Header/>
+    </div>
+  )
+}
+
+
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(<AppLayout/>);
 
-
-
-
-/**create single element */
-
-// const heading = React.createElement("h1", {id:"heading"}, "Hello World from React!");
-
-// console.log(heading); // print object
-
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading);
